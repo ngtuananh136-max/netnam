@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02. Quy Tắc Phê Duyệt - NetNam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #006837; --primary-dark: #004d28; --bg-secondary: #F3F7F4; --text-dark: #1E293B; --text-muted: #64748B; --border: #E2E8F0; --white: #FFFFFF; --warning: #ED6C02; --danger: #D32F2F; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-secondary); color: var(--text-dark); line-height: 1.5; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: var(--primary); color: var(--white); position: sticky; top: 0; z-index: 1000; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; background-color: #ffffff; }
+        .brand-container { display: flex; align-items: center; gap: 16px; }
+        .logo-img { height: 48px; object-fit: contain; }
+        .brand-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); border-left: 2px solid #cbd5e1; padding-left: 16px; }
+        .nav-bar { display: flex; overflow-x: auto; padding: 0 24px; background-color: var(--primary); }
+        .nav-item { color: rgba(255,255,255,0.9); padding: 12px 16px; text-decoration: none; font-size: 0.875rem; font-weight: 500; white-space: nowrap; border-bottom: 3px solid transparent; }
+        .nav-item:hover, .nav-item.active { color: var(--white); background-color: rgba(255,255,255,0.1); border-bottom-color: var(--white); }
+        .breadcrumb-container { background-color: var(--white); padding: 10px 24px; border-bottom: 1px solid var(--border); font-size: 0.8125rem; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        main { flex: 1; max-width: 1400px; width: 100%; margin: 0 auto; padding: 24px; }
+        .filter-card { background: var(--white); padding: 16px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .form-control { width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); outline: none; margin-top: 8px; }
+        .doc-card { background: var(--white); border-radius: 8px; border: 1px solid var(--border); padding: 16px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .doc-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .doc-title { font-size: 1rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .badge { font-size: 0.7rem; font-weight: 600; padding: 3px 8px; border-radius: 12px; text-transform: uppercase; }
+        .badge-warning { background-color: #FFF3E0; color: var(--warning); }
+        .doc-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; background: var(--bg-secondary); padding: 10px; border-radius: 6px; font-size: 0.8125rem; }
+        .doc-meta-item span { color: var(--text-muted); }
+        footer { background-color: var(--primary-dark); color: var(--white); padding: 32px 24px 16px; margin-top: auto; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; text-align: center; font-size: 0.8125rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="brand-container">
+                <img src="https://lh3.googleusercontent.com/d/1xS2dM0uV4aJbN133dD0y6A8aL5Xw6Y9-" alt="NetNam Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x50?text=NetNam+Logo'">
+                <div class="brand-title">SỔ TAY SALES ĐIỆN TỬ</div>
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-item">HOME</a>
+            <a href="p01-quy-trinh.html" class="nav-item">01. QUY TRÌNH</a>
+            <a href="p02-phe-duyet.html" class="nav-item active">02. PHÊ DUYỆT</a>
+            <a href="p03-ticket.html" class="nav-item">03. TICKET</a>
+            <a href="p04-ho-so-nl.html" class="nav-item">04. HỒ SƠ NL</a>
+            <a href="p05-hop-dong.html" class="nav-item">05. HỢP ĐỒNG</a>
+            <a href="p06-thau.html" class="nav-item">06. THẦU</a>
+            <a href="p07-bieu-mau.html" class="nav-item">07. BIỂU MẪU</a>
+            <a href="p08-san-pham.html" class="nav-item">08. SẢN PHẨM</a>
+            <a href="p09-faq.html" class="nav-item">09. FAQ</a>
+            <a href="p10-danh-ba.html" class="nav-item">10. DANH BẠ</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumb-container">
+        <div class="breadcrumb">
+            <a href="index.html">HOME</a> &gt; <span>02 - QUY TẮC PHÊ DUYỆT</span>
+        </div>
+    </div>
+
+    <main>
+        <h2 style="color: var(--primary); margin-bottom: 16px;">02 – QUY TẮC & THẨM QUYỀN PHÊ DUYỆT</h2>
+        <div class="filter-card">
+            <label style="font-weight: 600;">Sales đang gặp trường hợp nào?</label>
+            <select class="form-control" onchange="updateApprovalInfo(this.value)">
+                <option value="discount">Chiết khấu giá bán ngoài Bảng giá chuẩn</option>
+                <option value="debt">Gia hạn công nợ / Điều khoản thanh toán đặc biệt</option>
+            </select>
+        </div>
+
+        <div class="doc-card" id="approval-result">
+            <div class="doc-header">
+                <div class="doc-title"><i class="fas fa-shield-alt"></i> MỨC PHÊ DUYỆT CHIẾT KHẨU GIÁ BÁN</div>
+                <span class="badge badge-warning">CẦN XIN PHÊ DUYỆT</span>
+            </div>
+            <div class="doc-meta-grid">
+                <div class="doc-meta-item"><span>Cấp phê duyệt:</span> <strong>Giám đốc Kinh doanh / Ban Giám đốc</strong></div>
+                <div class="doc-meta-item"><span>Hồ sơ cần chuẩn bị:</span> <strong>Tờ trình Phương án Kinh doanh (Form 02-TT)</strong></div>
+                <div class="doc-meta-item"><span>Thời gian xử lý:</span> <strong>Trong vòng 04 giờ làm việc</strong></div>
+                <div class="doc-meta-item"><span>Kênh gửi:</span> <strong>Ticket e-Office / CRM</strong></div>
+            </div>
+            <div style="font-size: 0.875rem; color: var(--danger); font-weight: 500;">
+                ⚠️ Lưu ý: Các hợp đồng giảm giá > 20% bắt buộc phải có ý kiến thẩm định từ Bộ phận Kế toán / TSD.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4 style="margin-bottom: 12px;">SỔ TAY SALES ĐIỆN TỬ</h4>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Cổng thông tin tri thức & Hướng dẫn tác nghiệp dành riêng cho Đội ngũ Sales B2B NetNam Corporation.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 12px;">LIÊN HỆ QUẢN TRỊ</h4>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Ban Phát triển Kinh doanh - NetNam</p>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Email: portal-admin@netnam.vn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 NetNam Corporation. All Rights Reserved. "Your Net, We Care!"
+        </div>
+    </footer>
+
+    <script>
+        function updateApprovalInfo(val) {
+            const container = document.getElementById('approval-result');
+            if (val === 'discount') {
+                container.innerHTML = `
+                    <div class="doc-header">
+                        <div class="doc-title"><i class="fas fa-shield-alt"></i> MỨC PHÊ DUYỆT CHIẾT KHẨU GIÁ BÁN</div>
+                        <span class="badge badge-warning">CẦN XIN PHÊ DUYỆT</span>
+                    </div>
+                    <div class="doc-meta-grid">
+                        <div class="doc-meta-item"><span>Cấp phê duyệt:</span> <strong>Giám đốc Kinh doanh / Ban Giám đốc</strong></div>
+                        <div class="doc-meta-item"><span>Hồ sơ cần chuẩn bị:</span> <strong>Tờ trình Phương án Kinh doanh (Form 02-TT)</strong></div>
+                        <div class="doc-meta-item"><span>Thời gian xử lý:</span> <strong>Trong vòng 04 giờ làm việc</strong></div>
+                        <div class="doc-meta-item"><span>Kênh gửi:</span> <strong>Ticket e-Office / CRM</strong></div>
+                    </div>
+                    <div style="font-size: 0.875rem; color: var(--danger); font-weight: 500;">
+                        ⚠️ Lưu ý: Các hợp đồng giảm giá > 20% bắt buộc phải có ý kiến thẩm định từ Bộ phận Kế toán / TSD.
+                    </div>
+                `;
+            } else if (val === 'debt') {
+                container.innerHTML = `
+                    <div class="doc-header">
+                        <div class="doc-title"><i class="fas fa-credit-card"></i> NGUYÊN TẮC GIA HẠN CÔNG NỢ & ĐIỀU KHỎAN THANH TOÁN</div>
+                        <span class="badge badge-warning">CẦN XIN PHÊ DUYỆT</span>
+                    </div>
+                    <div class="doc-meta-grid">
+                        <div class="doc-meta-item"><span>Cấp phê duyệt:</span> <strong>Kế toán trưởng & Ban Giám đốc</strong></div>
+                        <div class="doc-meta-item"><span>Hồ sơ cần chuẩn bị:</span> <strong>Biên bản đối chiếu công nợ + Cam kết thanh toán từ KH</strong></div>
+                        <div class="doc-meta-item"><span>Thời gian xử lý:</span> <strong>01 ngày làm việc</strong></div>
+                        <div class="doc-meta-item"><span>Kênh gửi:</span> <strong>Ticket Kế toán</strong></div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

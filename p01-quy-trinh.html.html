@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01. Quy Trình Bán Hàng - NetNam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #006837; --primary-dark: #004d28; --primary-light: #e6f0eb; --bg-secondary: #F3F7F4; --text-dark: #1E293B; --text-muted: #64748B; --border: #E2E8F0; --white: #FFFFFF; --info: #0288D1; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-secondary); color: var(--text-dark); line-height: 1.5; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: var(--primary); color: var(--white); position: sticky; top: 0; z-index: 1000; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; background-color: #ffffff; }
+        .brand-container { display: flex; align-items: center; gap: 16px; }
+        .logo-img { height: 48px; object-fit: contain; }
+        .brand-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); border-left: 2px solid #cbd5e1; padding-left: 16px; }
+        .nav-bar { display: flex; overflow-x: auto; padding: 0 24px; background-color: var(--primary); }
+        .nav-item { color: rgba(255,255,255,0.9); padding: 12px 16px; text-decoration: none; font-size: 0.875rem; font-weight: 500; white-space: nowrap; border-bottom: 3px solid transparent; }
+        .nav-item:hover, .nav-item.active { color: var(--white); background-color: rgba(255,255,255,0.1); border-bottom-color: var(--white); }
+        .breadcrumb-container { background-color: var(--white); padding: 10px 24px; border-bottom: 1px solid var(--border); font-size: 0.8125rem; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        main { flex: 1; max-width: 1400px; width: 100%; margin: 0 auto; padding: 24px; }
+        .filter-card { background: var(--white); padding: 16px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .form-control { width: 100%; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); outline: none; margin-top: 8px; }
+        .stepper { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+        .step-item { display: flex; gap: 16px; background: var(--white); padding: 16px; border-radius: 8px; border-left: 4px solid var(--primary); }
+        .step-number { width: 32px; height: 32px; background-color: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .badge { font-size: 0.7rem; font-weight: 600; padding: 3px 8px; border-radius: 12px; text-transform: uppercase; display: inline-block; margin-top: 8px; }
+        .badge-info { background-color: #E1F5FE; color: var(--info); }
+        footer { background-color: var(--primary-dark); color: var(--white); padding: 32px 24px 16px; margin-top: auto; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; text-align: center; font-size: 0.8125rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="brand-container">
+                <img src="https://lh3.googleusercontent.com/d/1xS2dM0uV4aJbN133dD0y6A8aL5Xw6Y9-" alt="NetNam Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x50?text=NetNam+Logo'">
+                <div class="brand-title">SỔ TAY SALES ĐIỆN TỬ</div>
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-item">HOME</a>
+            <a href="p01-quy-trinh.html" class="nav-item active">01. QUY TRÌNH</a>
+            <a href="p02-phe-duyet.html" class="nav-item">02. PHÊ DUYỆT</a>
+            <a href="p03-ticket.html" class="nav-item">03. TICKET</a>
+            <a href="p04-ho-so-nl.html" class="nav-item">04. HỒ SƠ NL</a>
+            <a href="p05-hop-dong.html" class="nav-item">05. HỢP ĐỒNG</a>
+            <a href="p06-thau.html" class="nav-item">06. THẦU</a>
+            <a href="p07-bieu-mau.html" class="nav-item">07. BIỂU MẪU</a>
+            <a href="p08-san-pham.html" class="nav-item">08. SẢN PHẨM</a>
+            <a href="p09-faq.html" class="nav-item">09. FAQ</a>
+            <a href="p10-danh-ba.html" class="nav-item">10. DANH BẠ</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumb-container">
+        <div class="breadcrumb">
+            <a href="index.html">HOME</a> &gt; <span>01 - QUY TRÌNH CÔNG TY</span>
+        </div>
+    </div>
+
+    <main>
+        <h2 style="color: var(--primary); margin-bottom: 16px;">01 – QUY TRÌNH BÁN HÀNG & PHỐI HỢP NỘI BỘ</h2>
+        <div class="filter-card">
+            <label style="font-weight: 600;">Chọn quy trình cần xem:</label>
+            <select class="form-control">
+                <option>Quy trình bán hàng B2B tiêu chuẩn</option>
+                <option>Quy trình báo giá & Phê duyệt chiết khấu</option>
+                <option>Quy trình triển khai Kênh thuê riêng (Leased Line)</option>
+                <option>Quy trình nâng cấp băng thông / Tạm ngừng / Chấm dứt</option>
+            </select>
+        </div>
+
+        <div class="stepper">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <h4 style="color: var(--primary);">Tiếp nhận nhu cầu & Khảo sát kỹ thuật</h4>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Sales tạo Ticket Yêu cầu khảo sát trên hệ thống CRM gửi bộ phận NOC/TSD.</p>
+                    <span class="badge badge-info">SLA: 02 Giờ</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <h4 style="color: var(--primary);">Lập Phương án Kỹ thuật & Báo giá</h4>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">TSD cung cấp Phương án kỹ thuật. Sales lập báo giá theo mẫu quy định.</p>
+                    <span class="badge badge-info">SLA: 04 Giờ</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div>
+                    <h4 style="color: var(--primary);">Trình duyệt Giá đặc thù / Điều khoản (Nếu có)</h4>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Tra cứu Quy tắc Phê duyệt nếu có chiết khấu ngoài khung giá chuẩn.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div>
+                    <h4 style="color: var(--primary);">Ký kết Hợp đồng & Tạo Ticket Triển khai</h4>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Tải mẫu hợp đồng chuẩn tại Module 05. Sau khi ký, đính kèm HĐ lên Ticket Triển khai.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4 style="margin-bottom: 12px;">SỔ TAY SALES ĐIỆN TỬ</h4>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Cổng thông tin tri thức & Hướng dẫn tác nghiệp dành riêng cho Đội ngũ Sales B2B NetNam Corporation.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 12px;">LIÊN HỆ QUẢN TRỊ</h4>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Ban Phát triển Kinh doanh - NetNam</p>
+                <p style="font-size: 0.8125rem; opacity: 0.8;">Email: portal-admin@netnam.vn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 NetNam Corporation. All Rights Reserved. "Your Net, We Care!"
+        </div>
+    </footer>
+</body>
+</html>

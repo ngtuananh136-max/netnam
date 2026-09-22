@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Đấu thầu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .sidebar { min-height: 100vh; background-color: #2c3e50; }
+        .sidebar .nav-link { color: #ecf0f1; padding: 12px 20px; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background-color: #34495e; color: #3498db; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Navigation -->
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse p-0">
+            <div class="position-sticky pt-3">
+                <h5 class="text-white text-center mb-4">HỆ THỐNG QUẢN LÝ</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="p03-ticket.html"><i class="bi bi-ticket-perfered me-2"></i>Quản lý Ticket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p04-ho-so-nl.html"><i class="bi bi-folder-check me-2"></i>Hồ sơ năng lực</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p05-hop-dong.html"><i class="bi bi-file-earmark-text me-2"></i>Quản lý Hợp đồng</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="p06-thau.html"><i class="bi bi-briefcase me-2"></i>Quản lý Đấu thầu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p07-bieu-mau.html"><i class="bi bi-file-earmark-arrow-down me-2"></i>Biểu mẫu & Tài liệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p08-san-pham.html"><i class="bi bi-box-seam me-2"></i>Quản lý Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p09-faq.html"><i class="bi bi-question-circle me-2"></i>Hỏi đáp (FAQ)</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Danh sách Gói thầu & Dự án Đấu thầu</h1>
+                <button class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Thêm Gói thầu mới</button>
+            </div>
+
+            <div class="table-responsive bg-white rounded shadow-sm p-3">
+                <table class="table table-striped align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã HSMT</th>
+                            <th>Tên gói thầu</th>
+                            <th>Chủ đầu tư</th>
+                            <th>Giá gói thầu</th>
+                            <th>Hạn nộp HSDT</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TB-2026-089</td>
+                            <td>Xây dựng hệ thống quản lý dữ liệu tập trung</td>
+                            <td>Sở TT&TT Hà Nội</td>
+                            <td>2.500.000.000 VNĐ</td>
+                            <td>15/10/2026</td>
+                            <td><span class="badge bg-warning text-dark">Đang chuẩn bị HSDT</span></td>
+                            <td><button class="btn btn-sm btn-outline-primary">Chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>TB-2026-045</td>
+                            <td>Cung cấp thiết bị CNTT trường học</td>
+                            <td>Đại học Công nghiệp</td>
+                            <td>1.200.000.000 VNĐ</td>
+                            <td>01/09/2026</td>
+                            <td><span class="badge bg-success">Đã trúng thầu</span></td>
+                            <td><button class="btn btn-sm btn-outline-primary">Chi tiết</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
